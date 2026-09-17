@@ -9,6 +9,13 @@ Ubuntu에서 시작해 크롤링, 백테스트, AI 에이전트, Docker, AWS, Ku
 - [일일 기록 양식](templates/daily-log.md)
 - [첫 준비 기록](daily/2026-09-17.md)
 - [Git과 두 컴퓨터 사용 방법](docs/workflow.md)
+- [최신 인수인계 — 다른 컴퓨터에서 여기부터](docs/handoff.md)
+- [두 컴퓨터 환경표](docs/environments.md)
+- [PC 2 정리·Anaconda 이전 완료 기록](daily/2026-09-18.md)
+
+## 현재 진행 상태 — 2026-09-18
+
+PC 2의 사양 확인, 개인 자료 이동, 캐시 정리, Anaconda D드라이브 재설치·검증을 완료했습니다. C드라이브 여유 공간은 최종 확인 시 15.22GB입니다. Ubuntu 배포판 설치와 WSL2 실제 실행 검증은 아직 하지 않았습니다. 다음 작업은 PC 1에서 저장소를 동기화하고 저장 공간·WSL 상태를 확인하는 것입니다. 자세한 재개 순서는 [인수인계](docs/handoff.md)에 있습니다.
 
 ## 폴더
 - daily/: 날짜별 학습 기록
