@@ -1,0 +1,29 @@
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*
+secrets*
+.aws/
+.ssh/
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+# Local datasets and results
+data/
+*.sqlite
+*.sqlite3
+*.db
+*.log
+# Editor and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
