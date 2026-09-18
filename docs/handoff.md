@@ -1,6 +1,6 @@
 # 다른 컴퓨터에서 이어가기
 
-최종 갱신: 2026-09-18. 이전 대화가 보이지 않으면 이 문서부터 읽는다.
+최종 갱신: 2026-09-18. 이전 대화가 보이지 않으면 이 문서와 루트 AGENTS.md부터 읽는다.
 
 ## 프로젝트와 진행 위치
 
@@ -13,13 +13,15 @@ PC 2의 환경 정리·Anaconda 이전에 이어 PC 1의 Ubuntu 설치·계정 �
 1. PC 1의 기존 `ai-quant-learning` 저장소 폴더에서 `git status`를 확인한다.
 2. 변경 사항이 있으면 먼저 검토·저장한다. 깨끗한 상태에서 `git pull --ff-only`를 실행한다. 충돌은 강제 push나 reset으로 덮어쓰지 않는다.
 3. [9월 18일 기록](../daily/2026-09-18.md)과 [환경표](environments.md)를 읽는다.
-4. PC 1의 Ubuntu 실행은 확인 완료다. Ubuntu 창과 PowerShell 창을 구분하고, 다음으로 Ubuntu 패키지 목록 갱신과 업데이트를 한 단계씩 진행한다.
-5. 업데이트 결과를 확인한 뒤 1주차 3일차의 파일·폴더 명령 실습으로 넘어간다. WSL 자원 설정은 아직 변경하지 않았다.
+4. PC 1에서 VS Code의 WSL: Ubuntu 연결을 화면으로 확인했다. 사용자는 VS Code 터미널에서 whoami·pwd 실행을 마쳤다고 알렸으나 실제 출력값은 아직 전달받지 않았다. pwd 출력 경로를 먼저 확인한다. Windows 학습 저장소의 최근 커밋 push 여부와 Ubuntu 작업 사본 존재 여부를 확인한 뒤 작업 폴더 연결을 진행한다.
+5. Ubuntu 작업 폴더 준비 후 패키지 업데이트를 진행한다. 업데이트 결과를 확인한 뒤 1주차 3일차의 파일·폴더 명령 실습으로 넘어간다. WSL 자원 설정은 아직 변경하지 않았다.
 
 저장소가 없는 컴퓨터에서만 다음 명령으로 새 사본을 만든다. 비공개 저장소이므로 해당 GitHub 계정 인증이 필요하다.
 
 ```powershell
+# 원격 저장소를 현재 폴더 아래 ai-quant-learning 폴더로 다운로드한다. 로컬 파일이 생성된다.
 git clone https://github.com/antiage416-png/ai-quant-learning.git
+# 내려받은 저장소 폴더로 이동한다. cd는 작업 위치를 바꾸는 명령이다.
 cd ai-quant-learning
 ```
 
@@ -45,3 +47,9 @@ cd ai-quant-learning
 ## 다음 Codex에게 전달할 문장
 
 > 이 저장소의 docs/handoff.md, docs/environments.md, daily/2026-09-18.md를 읽고 이어서 진행해줘. 지금은 PC 1이야. PC 1은 Ubuntu 26.04.1 LTS를 설치했고 jaeho 계정과 WSL 2 Running 상태까지 확인했어. PC 2는 Anaconda 이전을 마쳤지만 Ubuntu는 아직 미설치야. 다음은 PC 1의 Ubuntu 업데이트와 기본 명령 실습이야. 한 번에 한 단계씩 진행하고 기록을 남겨줘. push는 내가 직접 할게. 기존 환경은 확인 없이 삭제하지 말아줘.
+
+## 반드시 유지할 설명 방식
+
+루트 [AGENTS.md](../AGENTS.md)를 따른다. 모든 터미널 명령은 실행 환경·목적·옵션·예상 결과·변경 영향을 설명하고 주석을 붙인다. 한 번에 한 단계씩 진행한다. 새 대화에서도 이 파일과 AGENTS.md를 먼저 읽도록 요청한다.
+
+현재 다음 단계는 VS Code 터미널의 실제 pwd 출력 확인과 Ubuntu 학습 작업 폴더 준비다. VS Code 연결 성공을 저장소 clone 완료나 패키지 업데이트 완료로 해석하지 않는다.

@@ -14,12 +14,12 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Configure repository-local Git author name and email first.' }
     $conflicts = & git diff --name-only --diff-filter=U
     if ($conflicts) { throw 'Resolve merge conflicts before saving.' }
-    $allowed = @('README.md', '.gitignore', 'daily', 'docs', 'templates', 'exercises', 'scripts')
+    $allowed = @('AGENTS.md', 'README.md', '.gitignore', 'daily', 'docs', 'templates', 'exercises', 'scripts')
     & git add -- $allowed
     if ($LASTEXITCODE -ne 0) { throw 'git add failed.' }
     $names = @(& git -c core.quotepath=false diff --cached --name-only)
     foreach ($name in $names) {
-        if ($name -notmatch '^(README\.md|\.gitignore|daily/|docs/|templates/|exercises/|scripts/)') {
+        if ($name -notmatch '^(AGENTS\.md$|README\.md|\.gitignore|daily/|docs/|templates/|exercises/|scripts/)') {
             throw "Unexpected staged path: $name. Review the index manually."
         }
         if ($name -match '(^|/)(\.env($|\.)|credentials|secrets)|\.(pem|key|p12|pfx)$') {
