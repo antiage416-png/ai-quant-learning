@@ -13,7 +13,7 @@ PC 2의 환경 정리·Anaconda 이전에 이어 PC 1의 Ubuntu 설치·계정 �
 1. PC 1의 기존 `ai-quant-learning` 저장소 폴더에서 `git status`를 확인한다.
 2. 변경 사항이 있으면 먼저 검토·저장한다. 깨끗한 상태에서 `git pull --ff-only`를 실행한다. 충돌은 강제 push나 reset으로 덮어쓰지 않는다.
 3. [9월 18일 기록](../daily/2026-09-18.md)과 [환경표](environments.md)를 읽는다.
-4. PC 1에서 VS Code의 WSL: Ubuntu 연결을 화면으로 확인했다. 사용자는 VS Code 터미널에서 whoami·pwd 실행을 마쳤다고 알렸으나 실제 출력값은 아직 전달받지 않았다. pwd 출력 경로를 먼저 확인한다. Windows 학습 저장소의 최근 커밋 push 여부와 Ubuntu 작업 사본 존재 여부를 확인한 뒤 작업 폴더 연결을 진행한다.
+4. PC 1에서 VS Code의 WSL: Ubuntu 연결을 화면으로 확인했다. VS Code 터미널의 whoami 결과 jaeho, pwd 결과 /home/jaeho를 사용자 화면으로 확인했다. Windows 학습 저장소의 최근 커밋 push 여부와 Ubuntu 작업 사본 존재 여부를 확인한 뒤 작업 폴더 연결을 진행한다.
 5. Ubuntu 작업 폴더 준비 후 패키지 업데이트를 진행한다. 업데이트 결과를 확인한 뒤 1주차 3일차의 파일·폴더 명령 실습으로 넘어간다. WSL 자원 설정은 아직 변경하지 않았다.
 
 저장소가 없는 컴퓨터에서만 다음 명령으로 새 사본을 만든다. 비공개 저장소이므로 해당 GitHub 계정 인증이 필요하다.
@@ -52,4 +52,4 @@ cd ai-quant-learning
 
 루트 [AGENTS.md](../AGENTS.md)를 따른다. 모든 터미널 명령은 실행 환경·목적·옵션·예상 결과·변경 영향을 설명하고 주석을 붙인다. 한 번에 한 단계씩 진행한다. 새 대화에서도 이 파일과 AGENTS.md를 먼저 읽도록 요청한다.
 
-현재 다음 단계는 VS Code 터미널의 실제 pwd 출력 확인과 Ubuntu 학습 작업 폴더 준비다. VS Code 연결 성공을 저장소 clone 완료나 패키지 업데이트 완료로 해석하지 않는다.
+현재 다음 단계는 Windows 저장소의 기록을 사용자가 push한 뒤 Ubuntu 학습 작업 폴더를 준비하는 것이다. VS Code 연결 성공을 저장소 clone 완료나 패키지 업데이트 완료로 해석하지 않는다.

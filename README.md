@@ -16,7 +16,7 @@ Ubuntu에서 시작해 크롤링, 백테스트, AI 에이전트, Docker, AWS, Ku
 
 ## 현재 진행 상태 — 2026-09-18
 
-PC 2는 환경 정리와 Anaconda D 이전을 마쳤고 Ubuntu는 미설치입니다. PC 1은 Ubuntu 26.04.1 LTS 설치, jaeho 계정 생성, WSL 2 실행과 VS Code의 WSL 연결을 확인했습니다. VS Code 터미널에서 사용자·경로 확인 명령 실행은 사용자 보고로 완료됐으나 실제 출력값은 아직 미확인입니다. 다음은 현재 경로 확인과 Ubuntu 작업 폴더 준비입니다. 패키지 업데이트는 아직 미확인입니다. 자세한 재개 순서는 [인수인계](docs/handoff.md)에 있습니다.
+PC 2는 환경 정리와 Anaconda D 이전을 마쳤고 Ubuntu는 미설치입니다. PC 1은 Ubuntu 26.04.1 LTS 설치, jaeho 계정 생성, WSL 2 실행과 VS Code의 WSL 연결을 확인했습니다. VS Code 터미널에서 whoami 결과 jaeho, pwd 결과 /home/jaeho를 사용자 화면으로 확인했습니다. 다음은 기록 업로드와 Ubuntu 작업 폴더 준비입니다. 패키지 업데이트는 아직 미확인입니다. 자세한 재개 순서는 [인수인계](docs/handoff.md)에 있습니다.
 
 ## 폴더
 - daily/: 날짜별 학습 기록
