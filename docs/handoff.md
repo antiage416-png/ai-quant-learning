@@ -53,3 +53,15 @@ cd ai-quant-learning
 루트 [AGENTS.md](../AGENTS.md)를 따른다. 모든 터미널 명령은 실행 환경·목적·옵션·예상 결과·변경 영향을 설명하고 주석을 붙인다. 한 번에 한 단계씩 진행한다. 새 대화에서도 이 파일과 AGENTS.md를 먼저 읽도록 요청한다.
 
 현재 다음 단계는 Windows 저장소의 기록을 사용자가 push한 뒤 Ubuntu 학습 작업 폴더를 준비하는 것이다. VS Code 연결 성공을 저장소 clone 완료나 패키지 업데이트 완료로 해석하지 않는다.
+
+## 최신 재개 지점 — 2026-09-18 수업 종료
+
+이 절은 앞선 다음 단계 안내보다 최신이다. 루트 AGENTS.md와 daily/2026-09-18.md의 마지막 기록을 먼저 읽는다.
+
+- 현재 작업 사본: PC 1 Ubuntu의 /home/jaeho/ai-quant-learning. Windows 사본을 병행 수정하지 않는다.
+- Ubuntu와 VS Code 연결, Git 소스 제어 사용, 자동 저장 설정까지 진행했다.
+- curl 8.18.0과 예제 사이트 HTML 요청 성공 확인. 시간 제약으로 추가 curl 실습은 중단하고 1주차 5일차 이후로 이월했다.
+- 다음 작업: edumgt 참고 저장소 복제 상태 확인 후 필요한 7개만 보관. python-crawling-lab, docker-class, edumgt-lab-init, investment-analysis, domain-rag-lab, aws-ec2-alb-lab, lumina-invest.
+- 54개 전체를 복제하는 이전 스크립트는 사용하지 않는다. 실행됐는지 미확인이므로 기존 폴더부터 읽기 전용으로 확인한다.
+- 이후 Ubuntu 패키지 업데이트 등 환경 준비를 진행한다. curl 상세 실습으로 먼저 넘어가지 않는다.
+- 재개할 때 git 상태와 동기화 상태를 확인한다. 기록 업로드는 사용자가 직접 한다.
