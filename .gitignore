@@ -27,3 +27,6 @@ data/
 .idea/
 .DS_Store
 Thumbs.db
+# 실습용으로 받은 내 프로필 원본은 로컬에만 보관
+/exercises/http-day05/my-github-profile.json
+
