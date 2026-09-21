@@ -110,3 +110,11 @@ cd ai-quant-learning
 - 개인 프로필 원본 JSON은 Git 제외 규칙을 적용해 로컬에 보관한다.
 - 다음에는 5일차 완료 기준인 응답 상태·본문 저장을 함께 확인한 뒤,
   6일차 BeautifulSoup 제목·링크 추출 실습으로 이어간다.
+
+  ## 최신 재개 지점 — 1주차 5일차 완료
+
+- HTTP·HTML·JSON 기초와 요청·응답 파일 저장 확인을 완료했다.
+- 실습 파일: exercises/http-day05/example-headers.txt, example.html.
+- 개인 프로필 JSON의 Git 제외 규칙은 유지한다.
+- 다음은 1주차 6일차: BeautifulSoup으로 제목·링크를 추출하고
+  pandas로 CSV를 만드는 실습이다.
