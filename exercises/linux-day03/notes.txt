@@ -1,0 +1,2 @@
+Linux day 03
+Practicing files and folders.
