@@ -96,3 +96,10 @@ cd ai-quant-learning
 - 다음은 계획표 1주차 4일차: Git 설정 확인과 Python 가상환경 준비다.
 - AGENTS.md에 따라 명령을 설명하고 한 단계씩 진행한다.
 
+## 최신 재개 지점 — 1주차 4일차 완료
+
+- PC 1 Ubuntu의 학습 저장소에 Python 3.14.4 가상환경을 만들었다.
+- 위치: /home/jaeho/ai-quant-learning/.venv
+- 활성화, Python·pip 경로, Git 추적 제외를 확인했다.
+- 다음은 계획표 1주차 5일차: HTTP·HTML·JSON 기초와 요청 실습이다.
+- 모든 명령을 설명하고 한 단계씩 진행한다.
