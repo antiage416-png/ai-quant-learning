@@ -130,3 +130,24 @@ cd ai-quant-learning
 - 실행 방법과 겪은 오류·해결 방법을 실습 README에 기록.
 - 다음: 2주차 8일차 — 브라우저 개발자 도구에서 HTML 구조와
   Network 요청을 관찰하고 선택자 3개를 설명한다.
+
+  ## 2026-09-23 — 2주차 8일차 완료
+
+### 완료한 내용
+- 개발자 도구 Elements에서 HTML 구조 확인.
+- h1, p a, a[href] 선택자로 요소 검색.
+- 자식·자손 관계와 p a, p.a, p > a의 차이 학습.
+- 선택자 참고 문서를 exercises/browser-day08/README.md에 저장.
+- Network에서 GET 요청과 304 Not Modified 응답 확인.
+- Disable cache 적용 후 새로고침하여 200 응답 확인.
+- Response에서 HTML 본문과 제목·링크 태그 확인.
+- 실습 기록은 daily/2026-09-23.md에 정리.
+
+### 다음 시작
+- 2주차 9일차: CSS 선택자로 제목·날짜·링크를 추출하고
+  누락된 항목을 처리한다.
+
+### 기록 원칙
+- 날짜별 실습과 결과: daily/
+- 실습 실행법과 참고 자료: 해당 실습 폴더의 README.md
+- 완료 진도와 다음 시작 지점: docs/handoff.md
