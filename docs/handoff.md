@@ -151,3 +151,10 @@ cd ai-quant-learning
 - 날짜별 실습과 결과: daily/
 - 실습 실행법과 참고 자료: 해당 실습 폴더의 README.md
 - 완료 진도와 다음 시작 지점: docs/handoff.md
+
+## 2026-09-23 — 2주차 9일차 완료
+
+- exercises/selectors-day09/articles.html과 parse_articles.py 작성.
+- CSS 선택자로 기사별 제목·날짜·링크 추출 완료.
+- 날짜와 링크가 없는 경우에도 오류 없이 처리되는 것을 확인.
+- 다음: 2주차 10일차 — 상대주소를 절대주소로 바꾸고 날짜·공백을 정리한다.
