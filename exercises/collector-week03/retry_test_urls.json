@@ -1,0 +1,11 @@
+[
+  {
+    "url": "https://quotes.toscrape.com/",
+    "reason": "성공 처리 확인을 위해 넣은 시험 항목"
+  },
+  {
+    "url": "https://quotes.toscrape.com/practice-missing-page-day15/",
+    "reason": "HTTP 404"
+  }
+]
+
