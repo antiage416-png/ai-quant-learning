@@ -302,3 +302,12 @@ cd ai-quant-learning
 - 실패 재실행은 최초 failed_urls.json을 읽는다.
 - collect.py에는 검증용 404 주소가 포함되어 있다.
 - PC2 환경 재현은 별도 미완료 항목이다.
+
+## 2026-09-29 — 4주차 22일차 완료
+
+- 기본 페이지와 JavaScript 페이지의 Response·Elements 비교 완료.
+- BeautifulSoup으로 div.quote 개수 10개와 0개 차이 확인.
+- 다음: 4주차 23일차 — Playwright 환경을 준비하고
+  연습 페이지를 열어 제목을 읽는다.
+- 새 진도에서도 목적과 데이터 흐름을 먼저 설명하고 작은 단계로 진행한다.
+
