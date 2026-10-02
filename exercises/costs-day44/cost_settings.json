@@ -1,0 +1,10 @@
+{
+  "initial_cash": "10000000",
+  "buy_commission_rate": "0.000140527",
+  "sell_commission_rate": "0.000140527",
+  "sell_tax_rate": "0.0015",
+  "slippage_rate": "0.0005",
+  "tax_year": 2025,
+  "commission_basis": "뱅키스 KRX 공개 기본요율을 고정 적용한 실습 가정. 개인 계좌의 우대 요율은 미확인.",
+  "rounding_basis": "가정 체결가격과 현금은 소수 허용. 수수료와 세금은 각각 체결 건마다 1원 미만 버림."
+}
