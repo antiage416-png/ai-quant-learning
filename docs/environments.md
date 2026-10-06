@@ -35,3 +35,14 @@ Windows Anaconda 이전은 WSL Ubuntu 설치와 별개다. Windows 환경을 그
 ## 자원 사용 방향
 
 PC 1은 주 개발·상대적으로 큰 백테스트·여러 컨테이너 실습, PC 2는 Python·수집·작은 백테스트·복습 중심으로 활용한다. 이는 현재 사양에 따른 계획이며 PC 1 설치 상태 확인 후 조정한다. Docker는 9주차, AWS는 17주차, Kubernetes는 21주차에 준비한다. AWS 예산과 계정 설정은 아직 정하지 않았다.
+
+## PC 1 — 51일차 API 실습 환경 확인, 2026-10-06
+
+- 기존 Ubuntu 가상환경: /home/jaeho/ai-quant-learning/.venv
+- Python 경로: /home/jaeho/ai-quant-learning/.venv/bin/python
+- 이번 실습에서 FastAPI 0.142.2와 Uvicorn 0.54.0을 설치했다.
+- 두 패키지 import와 버전 출력을 확인했다.
+- python -m pip check 결과: No broken requirements found.
+- 로컬 주소 127.0.0.1, 포트 8000에서 상태 확인 API 응답을 확인했다.
+- 브라우저와 자동 문서 호출을 확인한 뒤 Ctrl+C로 서버를 정상 종료했다.
+- PC 2의 설치 상태를 확인하거나 변경한 것은 아니다.
