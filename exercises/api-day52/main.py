@@ -1,7 +1,8 @@
 # 목적: 종목·기간을 검사하고 저장된 2025년 일봉 CSV를 조회합니다.
 # 입력 → 처리 → 결과: 종목·기간 → 자료 검사·행 선택 → JSON 응답.
 # 원본 파일 수정과 외부 데이터 요청은 없습니다.
-
+# 종가가 무한대나 결측값이 아닌 유한한 숫자인지 확인합니다.
+from math import isfinite
 from datetime import date
 from pathlib import Path
 
@@ -157,4 +158,50 @@ def get_prices(stock_code: str, start_date: date, end_date: date):
         "source_rows": len(table),
         "selected_rows": len(selected),
         "prices": selected.to_dict(orient="records"),
+    }
+
+# 첫 종가와 마지막 종가를 받아 기간 종가 변화율을 계산합니다.
+def calculate_price_change(first_close, last_close):
+    return last_close / first_close - 1
+
+# 종목·기간을 받아 첫 거래일 종가 대비 마지막 종가 변화율을 반환합니다.
+@app.get("/api/price-change")
+def get_price_change(stock_code: str, start_date: date, end_date: date):
+    # 기존 조회 함수의 입력·자료 검사를 먼저 거칩니다.
+    quoted = get_prices(stock_code, start_date, end_date)
+    rows = sorted(quoted["prices"], key=lambda row: row["date"])
+
+    # 서로 다른 두 거래일 이상이 있어야 기간 변화를 비교할 수 있습니다.
+    if len({row["date"] for row in rows}) < 2:
+        raise HTTPException(
+            status_code=400,
+            detail="종가 변화율 계산에는 서로 다른 거래일이 두 개 이상 필요합니다.",
+        )
+
+    # 계산에 사용할 양 끝의 종가를 숫자로 변환합니다.
+    try:
+        first_close = float(rows[0]["close"])
+        last_close = float(rows[-1]["close"])
+    except (TypeError, ValueError):
+        raise HTTPException(
+            status_code=503,
+            detail="계산에 사용할 종가를 숫자로 읽을 수 없습니다.",
+        )
+
+    if not all(isfinite(value) and value > 0 for value in [first_close, last_close]):
+        raise HTTPException(
+            status_code=503,
+            detail="계산에 사용할 종가는 유한한 양수여야 합니다.",
+        )
+
+    change = calculate_price_change(first_close, last_close)
+
+    return {
+        "stock_code": stock_code,
+        "first_date": rows[0]["date"],
+        "last_date": rows[-1]["date"],
+        "first_close": first_close,
+        "last_close": last_close,
+        "price_change": change,
+        "price_change_pct": change * 100,
     }
