@@ -46,3 +46,21 @@ PC 1은 주 개발·상대적으로 큰 백테스트·여러 컨테이너 실습
 - 로컬 주소 127.0.0.1, 포트 8000에서 상태 확인 API 응답을 확인했다.
 - 브라우저와 자동 문서 호출을 확인한 뒤 Ctrl+C로 서버를 정상 종료했다.
 - PC 2의 설치 상태를 확인하거나 변경한 것은 아니다.
+
+## PC 1 — 57일차 Docker 환경 확인, 2026-10-08
+
+- Windows 버전 출력: 10.0.19045.6466.
+- WSL 3.0.1, Ubuntu 배포판 WSL 2 실행.
+- Ubuntu 26.04.1 LTS, x86_64, systemd 실행.
+- 확인 당시 C 드라이브 여유 공간 약 105GB.
+- WSL Ubuntu 내부에 공식 APT 저장소를 통해 Docker Engine 설치.
+- Docker Client·Server 29.8.2.
+- containerd 2.3.6, runc 1.5.1.
+- Buildx 0.37.1, Compose 5.6.0.
+- Docker 서비스 시작과 hello-world 컨테이너 실행 성공 확인.
+- 현재 Docker 엔진 접근은 sudo 사용.
+- docker 그룹에 사용자 추가는 하지 않았다.
+- Docker Desktop 설치는 이번에 진행하지 않았다.
+- PC 2 환경은 이번에 변경하지 않았다.
+- VS Code의 Container Tools가 WSL Ubuntu의 Docker Engine에 연결됨을 확인했다.
+- jaeho의 docker 그룹 권한 적용 후 sudo 없이 Docker 사용 가능.
