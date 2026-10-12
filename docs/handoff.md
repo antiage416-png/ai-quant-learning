@@ -1242,35 +1242,59 @@ cd ai-quant-learning
 - 작은 코드 단위로 설명하고 실행 성공과 이해·숙련도를 구분한다.
 - 기록부터 수동 커밋·동기화까지 한 번에 안내한다.
 
-## 최신 재개 지점 — 2026-10-08, 9주차 57일차 — Docker 준비 완료
+## 최신 재개 지점 — 2026-10-08, 9주차 57일차 — Docker Desktop 연결 완료
 
 ### 완료한 일
 
-- WSL Ubuntu에 Docker 공식 저장소를 등록하고 Engine을 설치했다.
-- Docker Client·Server 29.8.2 연결과 hello-world 실행을 확인했다.
-- Buildx 0.37.1, Compose 5.6.0을 확인했다.
-- 사용자는 컨테이너 제거와 이미지 보존을 구분했다.
-- VS Code에서 이미지·컨테이너·로그 조회까지 확인했다.
-- hello-world 이미지와 종료된 hello-vscode 컨테이너가 남아 있다.
-- Docker 명령은 sudo 없이 사용 가능하다.
-- 다음 실습에서 같은 이름으로 docker run을 반복하면 이름 충돌이 발생할 수 있다.
-  기존 컨테이너 재사용 또는 새 이름 사용 여부를 먼저 정한다.
+- 최초 Ubuntu Engine 설치와 hello-world 실행, docker 그룹 적용을 확인했다.
+- 이후 Docker Desktop 4.94.0으로 전환하고 Ubuntu WSL Integration을 활성화했다.
+- Ubuntu docker 명령의 Server가 Docker Desktop이며 엔진 이름은 docker-desktop임을 확인했다.
+- Desktop 엔진에서 hello-desktop을 실행하고 Desktop·VS Code 양쪽 목록에서 확인했다.
 
 ### 현재 환경과 유지 조건
 
-- PC 1: Windows 10, WSL 3.0.1, Ubuntu 26.04.1의 WSL 2 환경.
-- Docker Desktop이 아닌 Ubuntu 내부 Docker Engine을 사용한다.
-- Docker 엔진 접근은 sudo로 실행한다. 사용자 그룹 설정은 변경하지 않았다.
-- hello-world 이미지는 내려받았으며 --rm으로 시험용 컨테이너를 제거했다.
-- 기존 Python 가상환경·자료·분석 코드는 유지했다.
-- 분석 API를 이미지로 빌드하거나 컨테이너에서 실행하지는 않았다.
-- Windows용 명령은 PowerShell, Linux용 명령은 Ubuntu로 명확히 구분한다.
+- PC 1: Windows 10 Home, WSL 3.0.1, Ubuntu 26.04.1의 WSL 2 환경.
+- 현재 실행 엔진은 Docker Desktop 4.94.0의 Engine 29.8.2다.
+- Ubuntu와 VS Code는 Desktop 엔진을 사용하며 sudo 없이 실행한다.
+- Desktop에 hello-world 이미지와 종료된 hello-desktop 컨테이너가 있다.
+- 기존 Ubuntu 엔진의 hello-vscode가 Desktop으로 이전된 것은 아니다.
+- 같은 이름으로 docker run을 반복하기 전에 기존 컨테이너 유무를 확인한다.
+- 분석 앱의 이미지 빌드·컨테이너 실행은 아직 진행하지 않았다.
+- Windows용 명령은 PowerShell, Linux용 명령은 Ubuntu로 구분한다.
+
+### 다음 시작과 저장 상태
+
+- 다음은 9주차 58일차: 이미지·컨테이너·포트·볼륨 실습이다.
+- Docker Desktop 실행과 Ubuntu의 연결 대상부터 확인하고 재설치하지 않는다.
+- 57일차 기록 정리와 Desktop 전환 기록은 로컬에 저장된 미커밋 변경이다.
+- 사용자 요청에 따라 58일차 마무리 때 함께 커밋·동기화한다.
+- 시작 시 위 변경을 보존하고 Git 상태를 확인한다.
+- 이후 분석 앱 구성에는 56일차 API의 52일차 코드 의존성과 DB 경로를 반영한다.
+
+## 최신 재개 지점 — 2026-10-12, 9주차 58일차 — Docker 기본 실습 완료
+
+### 실제 확인한 결과
+
+- WSL 연결 복구 후 Docker Desktop 4.94.0의 docker-desktop 엔진을 확인했다.
+- hello-desktop 재실행 전후 같은 ID와 정상 종료를 확인했다.
+- web-day58의 로컬 8080 → 컨테이너 80 연결, 브라우저 기본 페이지, 중지·재시작 후 같은 ID와 페이지를 확인했다.
+- day58-data에 파일을 기록하고 저장용 컨테이너를 삭제한 뒤 새 컨테이너에서 같은 내용을 읽었다.
+- 사용자는 개념을 반복 복습한 뒤 전체 실습 흐름을 요약했다. 실행 성공과 독립적인 구현 숙련도는 구분한다.
+
+### 마무리 상태와 저장
+
+- web-day58은 마무리 때 중지했다. hello-desktop·volume-read-day58도 종료 상태다.
+- day58-data와 이미지·세 컨테이너는 보관한다. volume-write-day58은 삭제됐다.
+- 기록: /home/jaeho/ai-quant-learning/exercises/docker-day58/README.md 및 daily/2026-10-12.md.
+- 57일차 보류 변경과 58일차 기록을 함께 커밋·푸시하도록 안내한다. 완료 여부는 다음 시작 시 Git 상태와 사용자 확인으로 판단한다.
+- 기존 CSV·DB·분석 코드와 백테스트 가정은 유지했다.
 
 ### 다음 시작
 
-- 9주차 58일차: 이미지·컨테이너·포트·볼륨의 역할을 작은 예제로 확인한다.
-- 최신 규칙·기록·Git 상태와 Docker 엔진 연결 상태를 확인한다.
-- 설치를 반복하지 않고 현재 환경을 활용한다.
-- Docker 그룹 권한을 변경할 경우 그 의미를 먼저 설명한다.
-- 이후 분석 앱 구성에는 56일차 API의 52일차 코드 의존성과 DB 경로를 반영한다.
-- 마무리 기록부터 수동 커밋·동기화까지 한 번에 안내한다.
+- 9주차 59일차: 분석 앱의 Dockerfile과 .dockerignore 작성.
+- 최신 규칙·계획·기록과 Git 상태를 확인하고, 미커밋 변경이 있으면 보존한다.
+- Docker Desktop 실행과 Ubuntu 연결부터 확인한다. 이미 마친 실습을 이유 없이 반복하지 않는다.
+- 이미지·컨테이너를 간단히 복습하고 새로 작성할 파일의 역할부터 설명한다.
+- 56일차 API가 52일차 main.py의 계산 함수·거래일 목록을 가져오는 의존성과 data/stock-day56/prices.db 경로를 확인한다.
+- 앱 코드·필요 패키지·DB 보관 방식을 구분하고 작은 단계로 작성·실행한다. 아직 자체 앱 이미지를 빌드한 것은 아니다.
+- 설명·주석은 한국어, 경로는 Ubuntu 절대경로로 안내하며 커밋·푸시는 사용자가 직접 한다.

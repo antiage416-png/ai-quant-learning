@@ -1,10 +1,10 @@
-# 9주차 57일차 — WSL Ubuntu에 Docker Engine 설치
+# 9주차 57일차 — Docker 설치와 Desktop·VS Code 연결
 
 ## 목적
 
 분석 API를 컨테이너로 실행하기 위한 Docker 환경을 준비한다.
 
-## 환경과 설치 방식
+## 최초 환경과 설치 방식
 
 - Windows 10, WSL 3.0.1, Ubuntu 배포판은 WSL 2로 실행.
 - Ubuntu 26.04.1 LTS, x86_64, systemd 실행 확인.
@@ -56,8 +56,7 @@ sudo docker run --rm hello-world
 - hello-world 이미지가 로컬에 없어 Docker Hub에서 내려받았다.
 - Hello from Docker! 출력으로 컨테이너 실행 성공을 확인했다.
 - --rm은 종료된 컨테이너를 제거하고 이미지는 남긴다.
-- 현재 엔진 접근 명령은 sudo로 실행한다.
-- docker 그룹에 사용자를 추가하는 설정은 하지 않았다.
+- 최초 실행은 sudo를 사용했고, 이후 jaeho의 docker 그룹 권한을 적용해 sudo 없이 연결을 확인했다.
 
 ## 문제와 해결
 
@@ -81,7 +80,7 @@ sudo docker run --rm hello-world
 참고 저장소의 여러 환경별 예제를 그대로 실행하지 않고,
 현재 WSL Ubuntu 환경에 맞춰 Docker 공식 설치 절차를 적용했다.
 
-## VS Code에서 이미지·컨테이너·로그 확인
+## 최초 Ubuntu 엔진을 VS Code에 연결한 과정
 
 - Microsoft Docker 확장 묶음의 Container Tools를 WSL Ubuntu에서 사용했다.
 - 처음에는 Docker 엔진 접근 권한 부족으로 permission denied가 표시됐다.
@@ -94,3 +93,14 @@ sudo docker run --rm hello-world
 - Docker Desktop을 추가 설치하지 않고 기존 Ubuntu Engine에 연결했다.
 - docker 그룹은 Docker를 통한 관리자 수준의 작업 권한을 부여한다.
 
+## Docker Desktop 전환과 현재 연결
+
+- 이후 사용자의 요청으로 Windows에 Docker Desktop 4.94.0 (241994)을 설치했다.
+- Ubuntu의 기존 Engine 패키지를 제거하는 전환 절차를 진행하고 Desktop의 Ubuntu WSL Integration을 활성화했다.
+- 현재 Ubuntu의 docker 명령은 Docker Desktop 엔진 29.8.2에 연결된다.
+- 엔진 이름 docker-desktop, 운영체제 Docker Desktop (containerized)를 확인했다.
+- Desktop 엔진에서 hello-world 이미지를 새로 내려받아 hello-desktop을 실행했다.
+- Hello from Docker! 출력과 종료된 hello-desktop을 Docker Desktop·VS Code 양쪽에서 확인했다.
+- 기존 Ubuntu 엔진의 hello-vscode와 Desktop의 hello-desktop은 서로 다른 컨테이너다.
+- 앞으로는 Docker Desktop을 실행하고 Ubuntu와 VS Code에서 같은 엔진을 사용한다.
+- Windows 10 Home에서 이번 설치·실행은 확인했으며 공식 지원 범위를 보장하는 의미는 아니다.
