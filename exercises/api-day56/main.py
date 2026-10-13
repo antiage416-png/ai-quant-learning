@@ -37,6 +37,14 @@ DATA_START = date(2025, 1, 2)
 DATA_END = date(2025, 6, 30)
 
 app = FastAPI(title="DB 기반 종가 변화율 학습 API")
+
+# 서버 상태 확인 요청을 받아 간단한 응답을 반환합니다.
+# DB 조회나 파일 변경, 외부 인터넷 요청은 하지 않습니다.
+@app.get("/health")
+def check_health():
+    return {"status": "ok"}
+
+
 # 종목·기간을 받아 DB 자료를 검사하고 종가 변화율을 반환합니다.
 @app.get("/api/price-change")
 def get_price_change(stock_code: str, start_date: date, end_date: date):
