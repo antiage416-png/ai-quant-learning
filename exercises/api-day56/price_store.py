@@ -2,12 +2,20 @@
 # 입력 → 처리 → 결과: 종목코드·시작일·종료일 → SQL 조회 → 행 목록.
 # DB를 읽기 전용으로 열며 파일 수정과 인터넷 요청은 없습니다.
 
+# 프로그램 실행 시 전달된 환경변수를 읽습니다.
+import os
+
 import sqlite3
 from datetime import date
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[2]
-DB_PATH = root / "data" / "stock-day56" / "prices.db"
+
+# 별도로 DB 위치를 지정하지 않으면 기존 경로를 사용합니다.
+DEFAULT_DB_PATH = root / "data" / "stock-day56" / "prices.db"
+
+# PRICE_DB_PATH 설정이 있으면 그 경로를 사용합니다.
+DB_PATH = Path(os.getenv("PRICE_DB_PATH", str(DEFAULT_DB_PATH)))
 
 
 # 날짜 객체 두 개를 받아 양 끝을 포함한 기간의 가격을 반환합니다.
