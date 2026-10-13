@@ -1,0 +1,52 @@
+# 이번 실습에서 사용하는 Compose 프로젝트 이름입니다.
+name: quant-day65
+
+# 실행할 프로그램들을 정의합니다.
+services:
+  # API 프로그램의 서비스 이름입니다.
+  api:
+    # 기존 Dockerfile로 API 이미지를 만드는 방법입니다.
+    build:
+      context: ../..
+      dockerfile: exercises/docker-day59/Dockerfile
+
+    # 내 컴퓨터의 8004번을 API의 8000번에 연결합니다.
+    ports:
+      - "127.0.0.1:8004:8000"
+
+    # 기존 SQLite 경로와 PostgreSQL 접속 정보를 전달합니다.
+    environment:
+      PRICE_DB_PATH: /storage/prices.db
+      PGHOST: db
+      PGPORT: "5432"
+      PGDATABASE: quant
+      PGUSER: quant
+      PGPASSWORD: ${POSTGRES_PASSWORD:?DB 비밀번호를 설정하세요}
+
+    # 기존 DB 폴더를 읽기 전용으로 연결합니다.
+    volumes:
+      - type: bind
+        source: ../../data/stock-day56
+        target: /storage
+        read_only: true
+        bind:
+          create_host_path: false
+
+  # API와 함께 실행할 PostgreSQL 서비스입니다.
+  db:
+    image: postgres:17
+
+    # 처음 DB를 만들 때 사용할 이름과 계정 설정입니다.
+    environment:
+      POSTGRES_DB: quant
+      POSTGRES_USER: quant
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?DB 비밀번호를 설정하세요}
+
+    # PostgreSQL 데이터를 이름 있는 볼륨에 보관합니다.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+# 이 프로젝트에서 사용할 이름 있는 볼륨을 선언합니다.
+volumes:
+  postgres_data:
+

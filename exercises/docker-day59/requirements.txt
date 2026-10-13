@@ -6,3 +6,6 @@ uvicorn==0.54.0
 
 # 기존 코드에서 거래일 목록을 만드는 데 사용합니다.
 pandas==3.0.6
+
+# Python에서 PostgreSQL에 접속하는 도구입니다.
+psycopg[binary]==3.3.6

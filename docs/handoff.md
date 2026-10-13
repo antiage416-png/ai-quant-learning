@@ -1427,3 +1427,26 @@ cd ai-quant-learning
 - 비밀번호를 기록에 노출하지 않고 .env 등 로컬 설정의 Git 제외 여부를 확인한다. 새 DB 볼륨과 기존 bind mount의 차이를 설명한다.
 - 학습 코드는 작은 블록으로 사용자 작성 후 결과 확인. 한국어 설명·주석과 절대경로, 가상환경 필요 여부 안내를 유지한다.
 - 기록·handoff·계획표부터 사용자 수동 커밋·동기화까지 마무리한다.
+
+## 최신 재개 지점 — 2026-10-13, 10주차 65일차 — Compose DB 접속 확인 완료
+
+- 64일차 커밋 24699d7 이후 65일차 실습 완료. 이번 커밋·푸시는 사용자에게 안내하며 다음 시작 시 확인한다.
+- 설정 폴더: /home/jaeho/ai-quant-learning/exercises/compose-day65/. compose.yaml·README.md와 Git 제외 로컬 .env가 있다.
+- 프로젝트 quant-day65, api와 db 서비스. API는 기존 Dockerfile 사용, requirements.txt에 psycopg[binary]==3.3.6 추가.
+- API 127.0.0.1:8004 → 8000, 기존 SQLite 읽기 전용 /storage 연결 유지.
+- DB postgres:17, 데이터베이스·사용자 quant, 이름 있는 볼륨 quant-day65_postgres_data → /var/lib/postgresql/data. DB 호스트 포트는 공개하지 않았다.
+- API 접속 환경변수 PGHOST=db·PGPORT=5432·PGDATABASE=quant·PGUSER=quant·PGPASSWORD(.env 참조).
+- API 컨테이너에서 psycopg로 실제 로그인하고 SELECT current_database(), current_user, 1 결과 quant·quant·1 확인. 준비 상태 검사와 실제 인증을 구분했다.
+- 가격 API의 PostgreSQL 전환은 아직 아니다. 기존 가격 조회는 SQLite다. 64일차 schema.sql도 아직 PostgreSQL에서 실행하지 않았다.
+- 두 서비스는 stop으로 정상 중지(종료 코드 0), 컨테이너·볼륨·.env·원본 DB 보관. 비밀번호는 출력하거나 Git에 넣지 않는다.
+
+### 다음 시작 — 10주차 66일차
+
+- 작은 샘플부터 SQLite 자료를 PostgreSQL로 옮기고 행 수·값을 대조한다.
+- Git·Docker·Compose 및 보관 자원을 확인하고 start 후 pg_isready로 준비 상태를 확인한다. 현재 자동 대기 설정은 없다.
+- PostgreSQL에 prices가 실제로 있는지 먼저 조회하고 64일차 schema.sql 적용을 작은 단계로 진행한다. 기존 테이블·데이터를 무조건 삭제하거나 재생성하지 않는다.
+- 원본 SQLite를 읽기 전용으로 보존한다. 가격 정수형 전환과 날짜형 차이를 고려해 거래량·기타 필드도 이관 전 검사한다.
+- 같은 데이터를 다시 실행할 때의 중복 처리와 트랜잭션 범위를 설명한다. 샘플 검증 후 전체 이관 여부를 단계적으로 결정한다.
+- 현재 Dockerfile은 52·56일차 코드만 복사하므로 새 이관 스크립트를 컨테이너에서 실행할 방법을 별도로 설계한다. 호스트 가상환경에는 psycopg 설치를 확인하지 않았다.
+- .env를 임의 재생성하지 않는다. 기존 DB 볼륨의 계정 비밀번호는 .env 변경만으로 바뀌지 않는다.
+- PC 2 재현은 보류 유지. 학습은 작은 블록으로 진행하고 기록부터 사용자 수동 커밋·동기화까지 마무리한다.
